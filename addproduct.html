@@ -1,0 +1,53 @@
+<html xmlns:th="http:/www.thymeleaf.org" th:replace="admin/adminbase::layout(~{::section})">
+<head>
+</head>
+<body>
+<section>
+<div class="main-panel w-100 row ms-auto"  style="margin-right: -45% !important;">
+        <div class="content-wrapper pb-0" style="margin: auto;">
+         <h1 class="text-center">Add Products</h1>
+         <div th:if="${message}">
+  				<p th:text="${message}" class="alert alert-success alert-dismissible"></p>
+  			</div>
+        <div class="row px-3">
+       		<form th:object="${productDao}" method="post" enctype="multipart/form-data">
+       			<table class="table table-bordered" style="margin:30px auto;">
+       			<tr>
+       			<th>Enter product Id : </th>
+       			<td><input type="text" th:field="${productDao.pid}" style="border: 0px;" placeholder="enter product id..." required="required"/></td>
+       			</tr>
+       			
+       			<tr>
+       			<th>Enter product name : </th>
+       			<td><input type="text" th:field="${productDao.pname}" style="border: 0px;" placeholder="enter product name..." required="required"/></td>
+       			</tr>
+       			<tr>
+       			<th>Enter product Description : </th>
+       			<td><input type="text" th:field="${productDao.pdesc}" style="border: 0px;" placeholder="enter product description..."/></td>
+       			</tr>
+       			<tr>
+       			<th>Enter product price : </th>
+       			<td><input type="text" th:field="${productDao.pprice}" style="border: 0px;" placeholder="enter product price..."/></td>
+       			</tr>
+       			<tr>
+       			<th>Enter product Image</th>
+       			<td><input type="file" th:field="${productDao.pimage}" style="border: 0px;"/></td>
+       			</tr>
+       			<tr>
+       			<td class="text-center" colspan="2">
+       				<button type="submit" class="btn btn-primary">Add Product</button>
+       			</td>
+       			</tr>
+       			</table>
+       		</form>
+        </div>
+        </div>
+        <!-- content-wrapper ends -->
+        
+        <!-- partial -->
+      </div>
+     
+
+</section>
+</body>
+</html>

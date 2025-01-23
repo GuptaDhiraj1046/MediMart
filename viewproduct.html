@@ -1,0 +1,49 @@
+<html xmlns:th="http:/www.thymeleaf.org" th:replace="admin/adminbase::layout(~{::section})">
+<head>
+</head>
+<body>
+<section>
+<div class="main-panel w-100 row ms-auto"  style="margin-right: -12% !important;">
+        <div class="content-wrapper pb-0">
+         <h1 class="text-center text-primary">All Uploaded Products</h1>
+        <div class="row px-3">
+         <table class="table table-bordered" style="width: 90%;">
+         	<thead class="text-center bg-dark">
+         		<tr>
+         		<th>Product ID</th>
+         		<th>Product Name</th>
+         		<th>Product Price</th>
+         		<th>Product Description</th>
+         		<th>Product Image</th>
+         		<th>Edit</th>
+         		<th>Delete</th>
+          		</tr>
+         	</thead>
+         	<tbody>
+         		<tr th:each="product:${plist}">
+         		  <td th:text="${product.pid}"></td>
+         		  <td th:text="${product.pname}"></td>
+         		  <td th:text="${product.pprice}"></td>
+         		  <td th:text="${product.pdesc}"></td>
+         		  <td class="p-1 text-center"><img alt="image not found" th:src="@{'/products/' + ${product.pimage}}" height="150px" width="150px"></td>
+         		  <td>
+         		    <a href="#" class="btn btn-success">Edit</a>
+         		  </td>
+         		  <td>
+         		    <a href="#" class="btn btn-danger">Delete</a>
+         		  </td>
+         		</tr>
+         	</tbody>
+         </table>
+       
+        </div>
+        </div>
+        <!-- content-wrapper ends -->
+        
+        <!-- partial -->
+      </div>
+     
+
+</section>
+</body>
+</html>

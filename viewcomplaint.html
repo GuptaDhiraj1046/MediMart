@@ -1,0 +1,47 @@
+<html xmlns:th="http:/www.thymeleaf.org" th:replace="admin/adminbase::layout(~{::section})">
+<head>
+</head>
+<body>
+<section>
+<div class="main-panel w-100 row ms-auto"  style="margin-right: -8% !important;">
+        <div class="content-wrapper pb-0">
+         <h1 class="text-center">Complaints By Customers</h1>
+        <div class="row px-3">
+         <table class="table table-bordered" style="width: 90%;">
+         	<thead class="text-center">
+         		<tr>
+         		<th>Name</th>
+         		<th>Contact No</th>
+         		<th>Email ID</th>
+         		<th>Subject</th>
+         		<th>Complaint Message</th>
+         		<th>Posted Date</th>
+         		<th>Delete</th>
+         		</tr>
+         	</thead>
+         	<tbody>
+         		<tr th:each="responses:${cresList}">
+         		<td th:text="${responses.name}">Name</td>
+         		<td th:text="${responses.contactno}">Contact No</td>
+         		<td th:text="${responses.custid}">Email ID</td>
+         		<td th:text="${responses.subject}">Subject</td>
+         		<td th:text="${responses.message}">Message</td>
+         		<td th:text="${responses.resdate}">Posted Date</td>
+         		<td>
+         		 <a href="#" class="btn btn-danger">Delete</a>
+         		</td>
+         		</tr>
+         	</tbody>
+         </table>
+       
+        </div>
+        </div>
+        <!-- content-wrapper ends -->
+        
+        <!-- partial -->
+      </div>
+     
+
+</section>
+</body>
+</html>

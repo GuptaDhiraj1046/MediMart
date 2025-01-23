@@ -1,0 +1,59 @@
+<html xmlns:th="http:/www.thymeleaf.org" th:replace="customer/customerbase::layout(~{::section})">
+<head>
+</head>
+<body>
+<section>
+
+<div class="main-panel w-100 row ms-auto">
+        <div class="content-wrapper w-100 pb-0" style="margin-left:55%;">
+        <h1 class="text-center text-primary">Submit Your Response</h1>
+    	<div th:if="${message}">
+    		<p th:text="${message}" class="alert alert-success alert-dismissible"></p>
+    	</div>
+    	
+        <div class="row px-3">
+       		<form method="post">
+       			<table class="table table-bordered" style="margin:30px auto;">
+       			<tr>
+       			<th>Select Response Type : </th>
+       			<td>
+       			<select name="responsetype" style="border:0px;">
+       			<option value="feedback">Feedback</option>
+       			<option value="complaint">Complaint</option>
+       			</select>
+       			</td>
+       			</tr>
+       			
+       			<tr>
+       			<th>Enter Response Subject : </th>
+       			<td>
+       				<input type="text" style="border: 0px;" placeholder="enter response subject..." name="subject" required="required"/>
+       			</td>
+       			</tr>
+       			<tr>
+       			<th>Enter Response Message : </th>
+       			<td>
+       				<textarea rows="" cols="" style="border: 0px;" placeholder="enter response message..." name="message"></textarea>
+       			</td>
+       			</tr>
+       			
+       			<tr>
+       			<td class="text-center" colspan="2">
+       				<button type="submit" class="btn btn-primary">Submit</button>
+       			</td>
+       			</tr>
+       			</table>
+       		</form>
+        </div>
+        </div>
+        </div>
+        
+        <!-- content-wrapper ends -->
+        
+        <!-- partial -->
+      
+     
+
+</section>
+</body>
+</html>

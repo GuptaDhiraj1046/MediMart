@@ -1,0 +1,47 @@
+<html xmlns:th="http:/www.thymeleaf.org" th:replace="admin/adminbase::layout(~{::section})">
+<head>
+</head>
+<body>
+<section>
+<div class="main-panel w-100 row ms-auto"  style="margin-right: -8% !important;">
+        <div class="content-wrapper pb-0">
+         <h1 class="text-center">Total Enquiries</h1>
+        <div class="row px-3">
+         <table class="table table-bordered" style="width: 90%;">
+         	<thead class="text-center">
+         		<tr>
+         		<th>Name</th>
+         		<th>Contact No</th>
+         		<th>Email</th>
+         		<th>Subject</th>
+         		<th>Message</th>
+         		<th>Enquiry Date</th>
+         		<th>Delete</th>
+        		</tr>
+         	</thead>
+         	<tbody>
+         		<tr th:each="enquries:${enquiryList}">
+         		  <td th:text="${enquries.name}">??</td>
+         		  <td th:text="${enquries.contactno}">??</td>
+         		  <td th:text="${enquries.email}">??</td>
+         		  <td th:text="${enquries.subject}"></td>
+         		  <td th:text="${enquries.message}"></td>
+         		  <td th:text="${enquries.posteddate}"></td>
+         		  <td>
+         		   <a href="#" class="btn btn-danger">Delete</a>
+         		  </td>
+         		</tr>
+         	</tbody>
+         </table>
+       
+        </div>
+        </div>
+        <!-- content-wrapper ends -->
+        
+        <!-- partial -->
+      </div>
+     
+
+</section>
+</body>
+</html>

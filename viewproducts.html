@@ -1,0 +1,52 @@
+<html xmlns:th="http:/www.thymeleaf.org" th:replace="customer/customerbase::layout(~{::section})">
+<head>
+</head>
+<body>
+<section class="p-0 m-0">
+  <div class="row p-0 m-0" style="width: 100% !important;">
+         <div class="col-xl-2 col-lg-3"></div>
+         <div class="col-xl-10 col-lg-9 p-0 m-0">
+        
+<div class="main-panel w-100" style="width: 100% !important;">
+        <div class="content-wrapper w-100 pb-0" style="width: 100% !important;">
+         <h1 class="text-center">All Products</h1>
+        	
+          <div class="row w-100 mb-5 m-0" style="width: 100% !important;">
+            <div th:each="p: ${plist}" class="col-xl-4 col-md-6 col-sm-12 p-0 m-0 mt-3 stretch-card">
+              <div class="row w-100 m-0">
+                <div class="col-xl-12 h-100 w-100">
+                  <div class="card bg-success h-100 m-0 ms-2">
+                    <div class="card-body px-3 pt-4 pb-1">
+                      <div class="d-flex justify-content-between pb-2 align-items-start">
+                        <div class="color-card">
+                          <p class="mb-0 color-card-head" th:text="${p.pname}">No Text</p>
+                          </div>
+                        <!-- <i class="card-icon-indicator mdi mdi-basket bg-inverse-icon-warning"></i> -->
+                        <img alt="image not found" style="border-radius: 50%; margin-top:-10px;" src="../image/logo-marc.jpg">
+                      </div>
+                     <!--  <h6 class="text-white">Products added to cart</h6>  -->
+                     <img th:src="@{'/products/' + ${p.pimage}}" class="card-img-top p-1" height="190px" />
+                     <h6 class="py-2">About Product :<br> <span th:text="${p.pdesc}" class="text-primary"></span></h6>
+                     <h6>Price : &#8377;<span th:text="${p.pprice}"></span>  <span></span></h6>
+                    	<p style="display: flex; justify-content: center; align-items: center;" class="text-center pb-0"> <a href="#" class="btn btn-primary p-1 mx-1">Buy Now</a><a href="#" class="btn p-1 btn-warning mx-1">Add to Cart</a>
+					</p>
+                    </div>
+                  </div>
+                </div>
+               </div>
+            </div>
+          
+          </div>
+        
+         </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        
+        <!-- partial -->
+      </div>
+     
+
+</section>
+</body>
+</html>

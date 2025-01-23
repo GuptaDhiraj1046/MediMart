@@ -1,0 +1,259 @@
+<html xmlns:th="http:/www.thymeleaf.org" th:replace="admin/adminbase::layout(~{::section})">
+<head>
+</head>
+<body>
+<section>
+<div class="main-panel w-100 row ms-auto"  style="margin-right: -9% !important;">
+        <div class="content-wrapper pb-0">
+          <div class="page-header flex-wrap">
+            <h3 class="mb-0">Hi, welcome back! <span class="ps-0 h6 ps-sm-2 text-muted d-inline-block">Your analytics
+                dashboard</span>
+            </h3>
+            <div class="d-flex">
+              <!-- <button type="button" class="btn btn-sm bg-white btn-icon-text border">
+                  <i class="mdi mdi-email btn-icon-prepend"></i> Email </button>
+                <button type="button" class="btn btn-sm bg-white btn-icon-text border ms-3">
+                  <i class="mdi mdi-printer btn-icon-prepend"></i> Print </button> -->
+              <button type="button" class="btn btn-sm ms-3 btn-success"> Add Product</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-3 col-lg-12 stretch-card grid-margin">
+              <div class="row">
+                <div class="col-xl-12 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                  <div class="card bg-warning">
+                    <div class="card-body px-3 py-4">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="color-card">
+                          <p class="mb-0 color-card-head">Total Customers</p>
+                          <h2 class="text-white py-2">+<span th:text="${ccount}"></span><span class="h5">.00</span></h2>
+                        </div>
+                        <i class="card-icon-indicator mdi mdi-basket bg-inverse-icon-warning"></i>
+                      </div>
+                      <h6 class="text-white">New Registered Customers</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                  <div class="card bg-danger">
+                    <div class="card-body px-3 py-4">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="color-card">
+                          <p class="mb-0 color-card-head">Total Enquiries</p>
+                          <h2 class="text-white">+<span th:text="${ecount}"></span><span class="h5">.00</span></h2>
+                        </div>
+                        <i class="card-icon-indicator mdi mdi-cube-outline bg-inverse-icon-danger"></i>
+                      </div>
+                      <h6 class="text-white">Enquiry from visitors</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                  <div class="card bg-primary">
+                    <div class="card-body px-3 py-4">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="color-card">
+                          <p class="mb-0 color-card-head">Total responses</p>
+                          <h2 class="text-white">+<span th:text="${rescount}"></span><span class="h5">.00</span></h2>
+                        </div>
+                        <i class="card-icon-indicator mdi mdi-briefcase-outline bg-inverse-icon-primary"></i>
+                      </div>
+                      <h6 class="text-white">Complaints & Feedbacks from Customers</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-md-6 stretch-card pb-sm-3 pb-lg-0">
+                  <div class="card bg-success">
+                    <div class="card-body px-3 py-4">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="color-card">
+                          <p class="mb-0 color-card-head">Total Products</p>
+                          <h2 class="text-white">+<span th:text="${pcount}"></span><span class="h5">.00</span></h2>
+                        </div>
+                        <i class="card-icon-indicator mdi mdi-account-circle bg-inverse-icon-success"></i>
+                      </div>
+                      <h6 class="text-white">Total products that you have uploaded</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-9 stretch-card grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-7">
+                      <h5>Business Survey</h5>
+                    </div>
+                    <div class="col-sm-5 text-md-end">
+                      <button type="button"
+                        class="btn btn-icon-text mb-3 mb-sm-0 btn-inverse-primary font-weight-normal">
+                        <i class="mdi mdi-email btn-icon-prepend"></i>Download Report</button>
+                        <p>.</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card mb-3 mb-sm-0">
+                        <div class="card-body py-3 px-4">
+                          <p class="m-0 survey-head">Saved Products</p>
+                          <div class="d-flex justify-content-between align-items-end flot-bar-wrapper">
+                            <div>
+                              <h3 class="m-0 survey-value">+50</h3>
+                            </div>
+                            <div id="earningChart" class="flot-chart"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="row my-3">
+                    <div class="col-sm-12">
+                      <div class="flot-chart-wrapper">
+                        <div id="flotChart" class="flot-chart">
+                          <canvas class="flot-base"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <p class="text-muted mb-0">Total numbers of customers and previous sales from the MediMart<b>Learn More</b></p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="mb-0 text-muted">Sales Revenue</p>
+                      <h5 class="d-inline-block survey-value mb-0">+00,00,000</h5>
+                      <p class="d-inline-block text-danger mb-0">last 00 months</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-8 col-sm-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body px-0 overflow-auto">
+                  <h4 class="card-title ps-4">Recent Customers</h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="bg-light">
+                        <tr>
+                          <th> Customer </th>
+                          <th> Contact </th>
+                          <th> Regdate </th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <img src="../assets/images/faces/face1.jpg" alt="image" />
+                              <div class="table-user-name ms-3">
+                                <p class="mb-0 font-weight-medium">Cecelia Cooper</p>
+                                <small> Payment on hold</small>
+                              </div>
+                            </div>
+                          </td>
+                          <td> Angular Admin</td>
+                          <td>
+                            <div class="badge badge-inverse-success"> Completed </div>
+                          </td>
+                         
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <img src="../assets/images/faces/face10.jpg" alt="image" />
+                              <div class="table-user-name ms-3">
+                                <p class="mb-0 font-weight-medium">Victor Watkins</p>
+                                <small>Email verified</small>
+                              </div>
+                            </div>
+                          </td>
+                          <td> Angular Admin </td>
+                          <td>
+                            <div class="badge badge-inverse-success"> Completed </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <img src="../assets/images/faces/face11.jpg" alt="image" />
+                              <div class="table-user-name ms-3">
+                                <p class="mb-0 font-weight-medium">Ada Burgess</p>
+                                <small>Email verified</small>
+                              </div>
+                            </div>
+                          </td>
+                          <td> One page html </td>
+                          <td>
+                            <div class="badge badge-inverse-danger"> Completed </div>
+                          </td>
+                         
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <img src="../assets/images/faces/face13.jpg" alt="image" />
+                              <div class="table-user-name ms-3">
+                                <p class="mb-0 font-weight-medium">Dollie Lynch</p>
+                                <small>Email verified</small>
+                              </div>
+                            </div>
+                          </td>
+                          <td> Wordpress </td>
+                          <td>
+                            <div class="badge badge-inverse-success "> Declined </div>
+                          </td>
+                        
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <img src="../assets/images/faces/face16.jpg" alt="image" />
+                              <div class="table-user-name ms-3">
+                                <p class="mb-0 font-weight-medium">Harry Holloway</p>
+                                <small>Payment on process</small>
+                              </div>
+                            </div>
+                          </td>
+                          <td> VueJs Application </td>
+                          <td>
+                            <div class="badge badge-inverse-danger"> Declined </div>
+                          </td>
+                       
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <a class="text-black mt-3 d-block ps-4" href="#"> <span class="font-weight-medium h6">View all order
+                      history</span> <i class="mdi mdi-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-6 grid-margin stretch-card">
+              <!--datepicker-->
+              <div class="card">
+                <div class="card-body">
+                  <div id="inline-datepicker" class="datepicker"></div>
+                </div>
+              </div>
+              <!--datepicker ends-->
+            </div>
+          </div>
+
+
+        </div>
+        <!-- content-wrapper ends -->
+        
+        <!-- partial -->
+      </div>
+     
+
+</section>
+</body>
+</html>

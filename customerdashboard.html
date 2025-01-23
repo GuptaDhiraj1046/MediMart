@@ -1,0 +1,199 @@
+<html xmlns:th="http:/www.thymeleaf.org"
+	th:replace="customer/customerbase::layout(~{::section})">
+<head>
+</head>
+<body>
+	<section>
+		<div class="main-panel w-100 row ms-auto"
+			style="margin-right: -12% !important;">
+			<div class="content-wrapper pb-0">
+				<div class="page-header flex-wrap">
+					<h3 class="mb-0">
+						Hi, <span th:text="${reg.name}"></span> <span
+							class="ps-0 h6 ps-sm-2 text-muted d-inline-block">Your
+							analytics dashboard</span>
+					</h3>
+
+				</div>
+
+
+				<div class="row">
+					<div class="col-xl-4 col-lg-6 stretch-card grid-margin">
+						<div class="row w-100">
+							<div class="col-xl-12 h-100">
+								<div class="card bg-warning h-100">
+									<div class="card-body px-3 py-4">
+										<div class="d-flex justify-content-between align-items-start">
+											<div class="color-card">
+												<p class="mb-0 color-card-head">Hello Dear,</p>
+												<h2 class="text-white py-2" th:text="${reg.name}"></h2>
+											</div>
+											<i
+												class="card-icon-indicator mdi mdi-basket bg-inverse-icon-warning"></i>
+										</div>
+										<!--  <h6 class="text-white">Products added to cart</h6>  -->
+										<img class="w-100" width="100%" height="75%" alt=""
+											th:src="@{'/profiles/' + ${reg.profilepic}}">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-8 col-lg-6 stretch-card grid-margin">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-7">
+										<h5>Business Survey</h5>
+									</div>
+									<div class="col-sm-5 text-md-end"></div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="card mb-3 mb-sm-0">
+											<div class="card-body py-3 px-4">
+												<p class="m-0 survey-head">Saved Products</p>
+												<div
+													class="d-flex justify-content-between align-items-end flot-bar-wrapper">
+													<div>
+														<h3 class="m-0 survey-value">+00</h3>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="row my-3">
+									<div class="col-sm-12">
+										<div class="flot-chart-wrapper">
+
+											<h1>Coming Soon</h1>
+
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-8">
+										<p class="text-muted mb-0">
+											Total numbers of customers and previous sales from the
+											MediMart<b>Learn More</b>
+										</p>
+									</div>
+									<div class="col-sm-4">
+										<p class="mb-0 text-muted">Sales Revenue</p>
+										<h5 class="d-inline-block survey-value mb-0">+00,00,000</h5>
+										<p class="d-inline-block text-danger mb-0">last 00 months</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-xl-8 col-sm-6 grid-margin stretch-card">
+						<div class="card">
+							<div class="card-body px-0 overflow-auto">
+								<h1 class="card-title ps-4">Your Personal Data</h1>
+								<div class="table-responsive">
+
+									<table class="table">
+										<!-- <thead class="bg-light"> -->
+										<tr>
+											<th>Name :</th>
+											<td>
+												<div class="d-flex align-items-center">
+													<img th:src="@{'/profiles/' + ${reg.profilepic}}" alt="image" />
+													<div class="table-user-name ms-3">
+														<p class="mb-0 font-weight-medium" th:text="${reg.name}">Customer Name</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<!--  </thead> -->
+										<!-- <tbody> -->
+										<tr>
+											<th>Gender : </th>
+											<td>
+												<div class="table-user-name ms-3">
+													<p class="mb-0 font-weight-medium" th:text="${reg.gender}">Customer Gender</p>
+												</div>
+											</td>
+
+										</tr>
+										<tr>
+											<th>Contact Number : </th>
+											<td>
+												<div class="table-user-name ms-3">
+													<p class="mb-0 font-weight-medium" th:text="${reg.contactno}">Contact Number.</p>
+												</div>
+											</td>
+
+										</tr>
+										<tr>
+											<th>Email Address : </th>
+											<td>
+												<div class="table-user-name ms-3">
+													<p class="mb-0 font-weight-medium" th:text="${reg.email}">Email address.</p>
+												</div>
+											</td>
+
+										</tr>
+										<tr>
+											
+											<th>Date of Birth : </th>
+											<td>
+												<div class="table-user-name ms-3">
+													<p class="mb-0 font-weight-medium" th:text="${reg.dob}">Date of birth.</p>
+												</div>
+											</td>
+
+										</tr>
+										<tr>	
+											<th>Address : </th>
+											<td>
+												<div class="table-user-name ms-3">
+													<p class="mb-0 font-weight-medium" th:text="${reg.address}">Address.</p>
+												</div>
+											</td>
+										</tr>
+										<tr>	
+											<th>Registration Date : </th>
+											<td>
+												<div class="table-user-name ms-3">
+													<p class="mb-0 font-weight-medium" th:text="${reg.regdate}">Address.</p>
+												</div>
+											</td>
+										</tr>
+										<!-- </tbody> -->
+									</table>
+
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-md-6 grid-margin stretch-card">
+						<!--datepicker-->
+						<div class="card">
+							<div class="card-body">
+								<div id="inline-datepicker" class="datepicker"></div>
+							</div>
+						</div>
+						<!--datepicker ends-->
+					</div>
+				</div>
+
+			</div>
+			<!-- content-wrapper ends -->
+
+			<!-- partial -->
+		</div>
+
+
+	</section>
+</body>
+</html>
