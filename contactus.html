@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <section>
+    	<div class="row">
+    	<div>
+    	<div class="container mb-5 ">
+    		<h1 class="text-primary text-center my-4 fw-bold">Enquiry Form</h1>	
+    		
+    		<div th:if="${message}">
+  				<p th:text="${message}" class="alert alert-success alert-dismissible"></p>
+  			</div>
+  			
+    		<form th:object="${enquiryDao}" method="post">
+    			<div class="row bg-primary py-5">
+    			<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Enter your Name</label>
+  					<input type="text" th:field="${enquiryDao.name}"  class="form-control" id="exampleFormControlInput1" placeholder="Enter your name..." >
+  					<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:Errors="${enquiryDao.name}"></p>
+				</div>
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Enter your Contact No.</label>
+  					<input type="text"  th:field="${enquiryDao.contactno}" class="form-control" id="exampleFormControlInput1" placeholder="Enter your contact number...">
+					<p class="text-danger" th:if="${#fields.hasErrors('contactno')}" th:Errors="${enquiryDao.contactno}"></p>
+				</div>
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Email address</label>
+  					<input type="email"  th:field="${enquiryDao.email}" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email...">
+					<p class="text-danger" th:if="${#fields.hasErrors('email')}" th:Errors="${enquiryDao.email}"></p>
+				</div>
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Enter Subject</label>
+  					<input type="text"  th:field="${enquiryDao.subject}" class="form-control" id="exampleFormControlInput1" placeholder="Enter Subject for enquiry...">
+					<p class="text-danger" th:if="${#fields.hasErrors('subject')}" th:Errors="${enquiryDao.subject}"></p>
+				</div>
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlTextarea1" class="form-label">Enter your message</label>
+  					<textarea class="form-control"  th:field="${enquiryDao.message}" id="exampleFormControlTextarea1" rows="3" ></textarea>
+					<p class="text-danger" th:if="${#fields.hasErrors('message')}" th:Errors="${enquiryDao.message}"></p>
+				</div>
+				<div class="text-center">
+				<button type="submit" class="btn btn-danger px-5 py-2">Submit Form</button>
+				</div>
+    			</div>
+    		</form>
+    	</div>
+    	</div>
+    	</div>
+    </section>
+  </body>
+</html>
